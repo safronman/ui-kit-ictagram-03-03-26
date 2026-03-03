@@ -1,8 +1,8 @@
-﻿import type { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { Typography } from './typography';
 
-const meta = {
+const meta = preview.meta({
   title: 'UI/Typography',
   component: Typography,
   tags: ['autodocs'],
@@ -40,14 +40,11 @@ const meta = {
       ],
     },
   },
-} satisfies Meta<typeof Typography>;
+});
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export const Playground = meta.story();
 
-export const Playground: Story = {};
-
-export const Headings: Story = {
+export const Headings = meta.story({
   parameters: {
     docs: {
       description: {
@@ -62,9 +59,9 @@ export const Headings: Story = {
       <Typography variant="h3">Heading 3</Typography>
     </div>
   ),
-};
+});
 
-export const BodyText: Story = {
+export const BodyText = meta.story({
   parameters: {
     docs: {
       description: {
@@ -83,9 +80,9 @@ export const BodyText: Story = {
       <Typography variant="body12Semibold">Body 12 Semibold</Typography>
     </div>
   ),
-};
+});
 
-export const LinksAndMuted: Story = {
+export const LinksAndMuted = meta.story({
   parameters: {
     docs: {
       description: {
@@ -101,4 +98,4 @@ export const LinksAndMuted: Story = {
       <Typography variant="lead">Lead text style</Typography>
     </div>
   ),
-};
+});

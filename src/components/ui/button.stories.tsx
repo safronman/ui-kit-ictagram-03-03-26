@@ -1,8 +1,8 @@
-﻿import type { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { Button } from './button';
 
-const meta = {
+const meta = preview.meta({
   title: 'UI/Button',
   component: Button,
   tags: ['autodocs'],
@@ -31,14 +31,11 @@ const meta = {
     },
     onClick: { action: 'clicked' },
   },
-} satisfies Meta<typeof Button>;
+});
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export const Primary = meta.story();
 
-export const Primary: Story = {};
-
-export const Secondary: Story = {
+export const Secondary = meta.story({
   parameters: {
     docs: {
       description: {
@@ -50,9 +47,9 @@ export const Secondary: Story = {
     variant: 'secondary',
     children: 'Secondary',
   },
-};
+});
 
-export const Outline: Story = {
+export const Outline = meta.story({
   parameters: {
     docs: {
       description: {
@@ -64,9 +61,9 @@ export const Outline: Story = {
     variant: 'outline',
     children: 'Outline',
   },
-};
+});
 
-export const Text: Story = {
+export const Text = meta.story({
   parameters: {
     docs: {
       description: {
@@ -78,19 +75,19 @@ export const Text: Story = {
     variant: 'text',
     children: 'Text',
   },
-};
+});
 
-export const Disabled: Story = {
+export const Disabled = meta.story({
   args: {
     disabled: true,
     children: 'Disabled',
   },
-};
+});
 
-export const IconSize: Story = {
+export const IconSize = meta.story({
   args: {
     size: 'icon',
     'aria-label': 'Icon button',
     children: '+',
   },
-};
+});
