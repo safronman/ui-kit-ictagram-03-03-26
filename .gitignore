@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 .codex
+
+*storybook.log
+storybook-static
