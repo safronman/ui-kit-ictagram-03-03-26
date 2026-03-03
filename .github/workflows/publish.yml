@@ -1,0 +1,60 @@
+name: Publish Package
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Validate release tag against package version
+        shell: bash
+        run: |
+          TAG_NAME="${{ github.event.release.tag_name }}"
+          if [[ ! "$TAG_NAME" =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$ ]]; then
+            echo "Release tag must match vX.Y.Z or prerelease format vX.Y.Z-suffix. Got: $TAG_NAME"
+            exit 1
+          fi
+          
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          EXPECTED_TAG="v$PACKAGE_VERSION"
+          
+          if [[ "$TAG_NAME" != "$EXPECTED_TAG" ]]; then
+            echo "Release tag $TAG_NAME does not match package.json version $PACKAGE_VERSION"
+            exit 1
+          fi
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Lint
+        run: pnpm run lint
+
+      - name: Publish to npm
+        run: npm publish --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
