@@ -6,6 +6,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
 import { playwright } from '@vitest/browser-playwright';
+import dts from 'vite-plugin-dts';
 const rootDir = path.dirname(fileURLToPath(import.meta.url));
 
 // https://vite.dev/config/
@@ -17,12 +18,30 @@ export default defineConfig({
   },
   plugins: [
     tailwindcss(),
+    dts({
+      tsconfigPath: path.resolve(rootDir, 'tsconfig.build.json'),
+    }),
     react({
       babel: {
         plugins: [['babel-plugin-react-compiler']],
       },
     }),
   ],
+  build: {
+    lib: {
+      entry: path.resolve(rootDir, 'src/index.ts'),
+      name: 'IctagramUiKit',
+      formats: ['es', 'cjs'],
+      fileName: (format) => (format === 'es' ? 'index.js' : 'index.cjs'),
+      cssFileName: 'styles',
+    },
+    rollupOptions: {
+      external: ['react', 'react-dom'],
+    },
+    sourcemap: true,
+    emptyOutDir: true,
+    copyPublicDir: false,
+  },
   test: {
     projects: [
       {
