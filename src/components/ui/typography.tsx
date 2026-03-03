@@ -46,4 +46,4 @@ const Typography = React.forwardRef<TypographyElement, TypographyProps>(
 
 Typography.displayName = 'Typography';
 
-export { Typography, typographyVariants };
+export { Typography };
