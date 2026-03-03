@@ -41,6 +41,7 @@ Use Conventional Commits: `type(scope): summary` (example: `feat(auth): add sign
 
 ## Agent Workflow Rules
 
-- Create commits only in Conventional Commits format.
 - After each completed task, run `pnpm format`.
 - After each completed task, run `pnpm run build`; if it fails, fix errors and rerun until build succeeds.
+- If a prompt mentions Shadcn, use `mcp_servers.shadcn`.
+- If a prompt mentions Figma, use `mcp_servers.Framelink_Figma_MCP`.
