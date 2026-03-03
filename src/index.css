@@ -20,9 +20,21 @@
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
+  --color-primary-100: var(--primary-100);
+  --color-primary-300: var(--primary-300);
+  --color-primary-500: var(--primary-500);
+  --color-primary-700: var(--primary-700);
+  --color-primary-900: var(--primary-900);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
+  --color-dark-100: var(--dark-100);
+  --color-dark-300: var(--dark-300);
+  --color-dark-400: var(--dark-400);
+  --color-dark-500: var(--dark-500);
+  --color-light-100: var(--light-100);
+  --color-light-500: var(--light-500);
+  --color-light-900: var(--light-900);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
@@ -99,6 +111,12 @@
 }
 
 :root {
+  --primary-100: #73a5ff;
+  --primary-300: #4c8dff;
+  --primary-500: #397df6;
+  --primary-700: #2f68cc;
+  --primary-900: #234e99;
+
   /* Base palette */
   --accent-100: oklch(0.726 0.142 261.448);
   --accent-300: oklch(0.658 0.182 260.738);
@@ -124,17 +142,18 @@
   --success-700: oklch(0.6 0.149 153.55);
   --success-900: oklch(0.449 0.109 154.209);
 
-  --dark-100: oklch(0.417 0 89.876);
-  --dark-300: oklch(0.321 0 89.876);
-  --dark-500: oklch(0.205 0 89.876);
+  --dark-100: #4c4c4c;
+  --dark-300: #333333;
+  --dark-400: #212121;
+  --dark-500: #171717;
   --dark-700: oklch(0.159 0 89.876);
   --dark-900: oklch(0 0 0);
 
-  --light-100: oklch(1 0 89.876);
+  --light-100: #ffffff;
   --light-300: oklch(0.986 0.007 247.894);
-  --light-500: oklch(0.962 0.011 252.088);
+  --light-500: #edf3fa;
   --light-700: oklch(0.886 0.01 252.819);
-  --light-900: oklch(0.652 0.007 255.494);
+  --light-900: #8d9094;
 
   --cool-gray-700: oklch(0.373 0.031 259.733);
   --cool-gray-800: oklch(0.278 0.03 256.848);
@@ -218,10 +237,10 @@
   --card-foreground: var(--dark-500);
   --popover: var(--light-100);
   --popover-foreground: var(--dark-500);
-  --primary: var(--accent-500);
+  --primary: var(--primary-500);
   --primary-foreground: var(--light-100);
-  --secondary: var(--light-500);
-  --secondary-foreground: var(--dark-500);
+  --secondary: var(--dark-300);
+  --secondary-foreground: var(--light-100);
   --muted: var(--light-500);
   --muted-foreground: var(--light-900);
   --accent: var(--accent-100);
