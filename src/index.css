@@ -5,6 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --font-sans: var(--font-family-sans);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -43,6 +44,58 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  --text-large: var(--typography-large-size);
+  --text-large--line-height: var(--typography-large-line-height);
+  --text-large--font-weight: var(--typography-large-weight);
+
+  --text-h1: var(--typography-h1-size);
+  --text-h1--line-height: var(--typography-h1-line-height);
+  --text-h1--font-weight: var(--typography-h1-weight);
+
+  --text-h2: var(--typography-h2-size);
+  --text-h2--line-height: var(--typography-h2-line-height);
+  --text-h2--font-weight: var(--typography-h2-weight);
+
+  --text-h3: var(--typography-h3-size);
+  --text-h3--line-height: var(--typography-h3-line-height);
+  --text-h3--font-weight: var(--typography-h3-weight);
+
+  --text-body-16: var(--typography-body-16-size);
+  --text-body-16--line-height: var(--typography-body-16-line-height);
+  --text-body-16--font-weight: var(--typography-body-16-weight);
+
+  --text-body-16-bold: var(--typography-body-16-bold-size);
+  --text-body-16-bold--line-height: var(--typography-body-16-bold-line-height);
+  --text-body-16-bold--font-weight: var(--typography-body-16-bold-weight);
+
+  --text-body-14: var(--typography-body-14-size);
+  --text-body-14--line-height: var(--typography-body-14-line-height);
+  --text-body-14--font-weight: var(--typography-body-14-weight);
+
+  --text-body-14-medium: var(--typography-body-14-medium-size);
+  --text-body-14-medium--line-height: var(--typography-body-14-medium-line-height);
+  --text-body-14-medium--font-weight: var(--typography-body-14-medium-weight);
+
+  --text-body-14-bold: var(--typography-body-14-bold-size);
+  --text-body-14-bold--line-height: var(--typography-body-14-bold-line-height);
+  --text-body-14-bold--font-weight: var(--typography-body-14-bold-weight);
+
+  --text-body-12: var(--typography-body-12-size);
+  --text-body-12--line-height: var(--typography-body-12-line-height);
+  --text-body-12--font-weight: var(--typography-body-12-weight);
+
+  --text-body-12-semibold: var(--typography-body-12-semibold-size);
+  --text-body-12-semibold--line-height: var(--typography-body-12-semibold-line-height);
+  --text-body-12-semibold--font-weight: var(--typography-body-12-semibold-weight);
+
+  --text-link-14: var(--typography-link-14-size);
+  --text-link-14--line-height: var(--typography-link-14-line-height);
+  --text-link-14--font-weight: var(--typography-link-14-weight);
+
+  --text-link-12: var(--typography-link-12-size);
+  --text-link-12--line-height: var(--typography-link-12-line-height);
+  --text-link-12--font-weight: var(--typography-link-12-weight);
 }
 
 :root {
@@ -85,6 +138,77 @@
 
   --cool-gray-700: oklch(0.373 0.031 259.733);
   --cool-gray-800: oklch(0.278 0.03 256.848);
+
+  /* Typography base tokens */
+  --font-family-sans: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --font-size-12: 0.75rem;
+  --font-size-14: 0.875rem;
+  --font-size-16: 1rem;
+  --font-size-18: 1.125rem;
+  --font-size-20: 1.25rem;
+  --font-size-26: 1.625rem;
+
+  --line-height-16: 1rem;
+  --line-height-24: 1.5rem;
+  --line-height-36: 2.25rem;
+
+  /* Typography semantic tokens */
+  --typography-large-size: var(--font-size-26);
+  --typography-large-line-height: var(--line-height-36);
+  --typography-large-weight: var(--font-weight-semibold);
+
+  --typography-h1-size: var(--font-size-20);
+  --typography-h1-line-height: var(--line-height-36);
+  --typography-h1-weight: var(--font-weight-bold);
+
+  --typography-h2-size: var(--font-size-18);
+  --typography-h2-line-height: var(--line-height-24);
+  --typography-h2-weight: var(--font-weight-bold);
+
+  --typography-h3-size: var(--font-size-16);
+  --typography-h3-line-height: var(--line-height-24);
+  --typography-h3-weight: var(--font-weight-semibold);
+
+  --typography-body-16-size: var(--font-size-16);
+  --typography-body-16-line-height: var(--line-height-24);
+  --typography-body-16-weight: var(--font-weight-regular);
+
+  --typography-body-16-bold-size: var(--font-size-16);
+  --typography-body-16-bold-line-height: var(--line-height-24);
+  --typography-body-16-bold-weight: var(--font-weight-bold);
+
+  --typography-body-14-size: var(--font-size-14);
+  --typography-body-14-line-height: var(--line-height-24);
+  --typography-body-14-weight: var(--font-weight-regular);
+
+  --typography-body-14-medium-size: var(--font-size-14);
+  --typography-body-14-medium-line-height: var(--line-height-24);
+  --typography-body-14-medium-weight: var(--font-weight-medium);
+
+  --typography-body-14-bold-size: var(--font-size-14);
+  --typography-body-14-bold-line-height: var(--line-height-24);
+  --typography-body-14-bold-weight: var(--font-weight-bold);
+
+  --typography-body-12-size: var(--font-size-12);
+  --typography-body-12-line-height: var(--line-height-16);
+  --typography-body-12-weight: var(--font-weight-regular);
+
+  --typography-body-12-semibold-size: var(--font-size-12);
+  --typography-body-12-semibold-line-height: var(--line-height-16);
+  --typography-body-12-semibold-weight: var(--font-weight-semibold);
+
+  --typography-link-14-size: var(--font-size-14);
+  --typography-link-14-line-height: var(--line-height-24);
+  --typography-link-14-weight: var(--font-weight-regular);
+
+  --typography-link-12-size: var(--font-size-12);
+  --typography-link-12-line-height: var(--line-height-16);
+  --typography-link-12-weight: var(--font-weight-regular);
 
   /* Semantic tokens */
   --radius: 0.625rem;
@@ -160,6 +284,92 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background font-sans text-foreground;
+  }
+}
+
+@layer components {
+  .typography-large {
+    font-size: var(--typography-large-size);
+    line-height: var(--typography-large-line-height);
+    font-weight: var(--typography-large-weight);
+  }
+
+  .typography-h1 {
+    font-size: var(--typography-h1-size);
+    line-height: var(--typography-h1-line-height);
+    font-weight: var(--typography-h1-weight);
+  }
+
+  .typography-h2 {
+    font-size: var(--typography-h2-size);
+    line-height: var(--typography-h2-line-height);
+    font-weight: var(--typography-h2-weight);
+  }
+
+  .typography-h3 {
+    font-size: var(--typography-h3-size);
+    line-height: var(--typography-h3-line-height);
+    font-weight: var(--typography-h3-weight);
+  }
+
+  .typography-body-16 {
+    font-size: var(--typography-body-16-size);
+    line-height: var(--typography-body-16-line-height);
+    font-weight: var(--typography-body-16-weight);
+  }
+
+  .typography-body-16-bold {
+    font-size: var(--typography-body-16-bold-size);
+    line-height: var(--typography-body-16-bold-line-height);
+    font-weight: var(--typography-body-16-bold-weight);
+  }
+
+  .typography-body-14 {
+    font-size: var(--typography-body-14-size);
+    line-height: var(--typography-body-14-line-height);
+    font-weight: var(--typography-body-14-weight);
+  }
+
+  .typography-body-14-medium {
+    font-size: var(--typography-body-14-medium-size);
+    line-height: var(--typography-body-14-medium-line-height);
+    font-weight: var(--typography-body-14-medium-weight);
+  }
+
+  .typography-body-14-bold {
+    font-size: var(--typography-body-14-bold-size);
+    line-height: var(--typography-body-14-bold-line-height);
+    font-weight: var(--typography-body-14-bold-weight);
+  }
+
+  .typography-body-12 {
+    font-size: var(--typography-body-12-size);
+    line-height: var(--typography-body-12-line-height);
+    font-weight: var(--typography-body-12-weight);
+  }
+
+  .typography-body-12-semibold {
+    font-size: var(--typography-body-12-semibold-size);
+    line-height: var(--typography-body-12-semibold-line-height);
+    font-weight: var(--typography-body-12-semibold-weight);
+  }
+
+  .typography-link-14 {
+    font-size: var(--typography-link-14-size);
+    line-height: var(--typography-link-14-line-height);
+    font-weight: var(--typography-link-14-weight);
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 0.125rem;
+  }
+
+  .typography-link-12 {
+    font-size: var(--typography-link-12-size);
+    line-height: var(--typography-link-12-line-height);
+    font-weight: var(--typography-link-12-weight);
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 0.125rem;
   }
 }
