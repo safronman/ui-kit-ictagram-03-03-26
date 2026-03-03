@@ -39,7 +39,7 @@ export const Secondary = meta.story({
   parameters: {
     docs: {
       description: {
-        story: 'Secondary action for less prominent operations.',
+        story: 'Secondary action for less prominent operations 2.',
       },
     },
   },
