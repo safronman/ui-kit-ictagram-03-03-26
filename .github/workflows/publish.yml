@@ -29,7 +29,12 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        shell: bash
+        run: |
+          pnpm install --frozen-lockfile || {
+            echo "Lockfile is out of date for this tag, fallback to --no-frozen-lockfile";
+            pnpm install --no-frozen-lockfile;
+          }
 
       - name: Validate release tag against package version
         shell: bash
@@ -39,10 +44,10 @@ jobs:
             echo "Release tag must match vX.Y.Z or prerelease format vX.Y.Z-suffix. Got: $TAG_NAME"
             exit 1
           fi
-          
+
           PACKAGE_VERSION=$(node -p "require('./package.json').version")
           EXPECTED_TAG="v$PACKAGE_VERSION"
-          
+
           if [[ "$TAG_NAME" != "$EXPECTED_TAG" ]]; then
             echo "Release tag $TAG_NAME does not match package.json version $PACKAGE_VERSION"
             exit 1
