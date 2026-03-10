@@ -1,31 +1,41 @@
-import { Button } from '@/components/ui/button';
-import { Typography } from '@/components/ui/typography';
+import { NavLink, Route, Routes } from 'react-router-dom';
+
+import { HomePage } from '@/pages/home-page';
+import { NotFoundPage } from '@/pages/not-found-page';
+import { TestsPage } from '@/pages/tests-page';
 
 function App() {
   return (
-    <main className="mx-auto flex min-h-screen w-full max-w-4xl flex-col gap-6 bg-background p-8">
-      <div className="flex flex-wrap gap-3">
-        <Button>Primary</Button>
-        <Button variant="secondary">Secondary</Button>
-        <Button variant="outline">Outline</Button>
-        <Button variant="text">Text</Button>
-        <Button disabled>Primary Disabled</Button>
-        <Button variant="secondary" disabled>
-          Secondary Disabled
-        </Button>
-        <Button variant="outline" disabled>
-          Outline Disabled
-        </Button>
-        <Button variant="text" disabled>
-          Text Disabled
-        </Button>
+    <main className="mx-auto flex min-h-screen w-full max-w-5xl flex-col gap-8 bg-background p-8">
+      <header className="flex items-center justify-between gap-4 border-b pb-4">
+        <h1 className="text-h3">UI Kit Demo</h1>
+        <nav className="flex items-center gap-3">
+          <NavLink
+            to="/"
+            end={true}
+            className={({ isActive }) =>
+              isActive ? 'text-body-14-medium text-primary-500 underline' : 'text-body-14-medium text-foreground'
+            }
+          >
+            Главная
+          </NavLink>
+          <NavLink
+            to="/tests"
+            className={({ isActive }) =>
+              isActive ? 'text-body-14-medium text-primary-500 underline' : 'text-body-14-medium text-foreground'
+            }
+          >
+            Тесты
+          </NavLink>
+        </nav>
+      </header>
+      <div className="flex-1">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/tests" element={<TestsPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
       </div>
-      <Typography variant="h1" asChild={true}>
-        <h1>Typography component</h1>
-      </Typography>
-      <Typography variant="h2" asChild={true}>
-        <h2>Typography component</h2>
-      </Typography>
     </main>
   );
 }

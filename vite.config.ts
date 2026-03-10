@@ -9,6 +9,8 @@ import { playwright } from '@vitest/browser-playwright';
 import dts from 'vite-plugin-dts';
 const rootDir = path.dirname(fileURLToPath(import.meta.url));
 
+import { peerDependencies, dependencies, devDependencies } from './package.json';
+
 // https://vite.dev/config/
 export default defineConfig({
   resolve: {
@@ -36,7 +38,12 @@ export default defineConfig({
       cssFileName: 'styles',
     },
     rollupOptions: {
-      external: ['react', 'react-dom'],
+      external: [
+        'react/jsx-runtime',
+        ...Object.keys(peerDependencies),
+        ...Object.keys(dependencies),
+        ...Object.keys(devDependencies),
+      ],
     },
     sourcemap: true,
     emptyOutDir: true,
